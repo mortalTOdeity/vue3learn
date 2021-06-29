@@ -10,7 +10,11 @@
   <div id="app"></div>
   <script src="https://unpkg.com/vue@next"></script>
   <script>
-    const app = Vue.createApp()
+    const obj = {
+      template: '<h2>hello world!</h2>'
+    }
+
+    const app = Vue.createApp(obj)
     app.mount('#app')
   </script>
 </body>
