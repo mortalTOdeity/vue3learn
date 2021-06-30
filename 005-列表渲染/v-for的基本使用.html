@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <template id="chen">
+    <div>
+      <!-- 遍历数组 -->
+      <ul>
+        <li v-for="(movie, index) in movies">{{index}}--{{movie}}</li>
+      </ul>
+      <!-- 遍历对象 -->
+      <ul>
+        <li v-for="(value, key, index) in info">{{key}}: {{value}}</li>
+      </ul>
+      <!-- 遍历数字 -->
+      <ul>
+        <li v-for="(num, index) in 10">{{num}}--{{index}}</li>
+      </ul>
+    </div>
+  </template>
+
+  <script>
+    const obj = {
+      template: '#chen',
+      data() {
+        return {
+          movies: [
+            '星际穿越',
+            '盗梦空间',
+            '大话西游',
+            '少年派'
+          ],
+          info: {
+            name: 'chen',
+            age: 18,
+            gender: 'male'
+          }
+        }
+      },
+      // 定义方法
+      methods: {
+        
+      },
+    }
+    const app = Vue.createApp(obj)
+    app.mount('#app')
+
+  </script>
+</body>
+</html>

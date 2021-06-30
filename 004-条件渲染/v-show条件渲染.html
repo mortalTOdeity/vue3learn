@@ -10,18 +10,9 @@
   <div id="app"></div>
   <script src="https://unpkg.com/vue@next"></script>
   <template id="chen">
-    <template v-if="isShow">    
-      <h2>啊啊啊</h2>
-      <h2>啊啊啊</h2>
-      <h2>啊啊啊</h2>
-    </template>
-    
-    <template v-else>
-      <h2>这这这</h2>
-      <h2>这这这</h2>
-      <h2>这这这</h2>
-    </template>
-    
+    <div>
+      <h2 v-show="isShow">ssss</h2>
+    </div>
   </template>
 
   <script>
@@ -30,7 +21,7 @@
       data() {
         return {
           message: 'hello world',
-          isShow: true
+          isShow: false
         }
       },
       // 定义方法

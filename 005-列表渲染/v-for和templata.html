@@ -10,18 +10,11 @@
   <div id="app"></div>
   <script src="https://unpkg.com/vue@next"></script>
   <template id="chen">
-    <template v-if="isShow">    
-      <h2>啊啊啊</h2>
-      <h2>啊啊啊</h2>
-      <h2>啊啊啊</h2>
-    </template>
-    
-    <template v-else>
-      <h2>这这这</h2>
-      <h2>这这这</h2>
-      <h2>这这这</h2>
-    </template>
-    
+    <ul>
+      <template v-for="(value, key) in info">
+        <li>{{key}}: {{value}}</li>
+      </template>
+    </ul>
   </template>
 
   <script>
@@ -30,7 +23,11 @@
       data() {
         return {
           message: 'hello world',
-          isShow: true
+          info: {
+            name: 'chen',
+            age: 33,
+            gender: 'male'
+          }
         }
       },
       // 定义方法

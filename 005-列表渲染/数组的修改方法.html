@@ -10,18 +10,14 @@
   <div id="app"></div>
   <script src="https://unpkg.com/vue@next"></script>
   <template id="chen">
-    <template v-if="isShow">    
-      <h2>啊啊啊</h2>
-      <h2>啊啊啊</h2>
-      <h2>啊啊啊</h2>
-    </template>
-    
-    <template v-else>
-      <h2>这这这</h2>
-      <h2>这这这</h2>
-      <h2>这这这</h2>
-    </template>
-    
+    <div>
+      <!-- 遍历数组 -->
+      <ul>
+        <li v-for="(movie, index) in movies">{{index}}--{{movie}}</li>
+      </ul>
+      <button @click="addMovie">添加电影</button>
+      <input type="text" v-model="newMovie">
+    </div>
   </template>
 
   <script>
@@ -29,12 +25,21 @@
       template: '#chen',
       data() {
         return {
-          message: 'hello world',
-          isShow: true
+          newMovie: '',
+          movies: [
+            '星际穿越',
+            '盗梦空间',
+            '大话西游',
+            '少年派'
+          ],
         }
       },
       // 定义方法
       methods: {
+        addMovie() {
+          this.movies.push(this.newMovie)
+          this.newMovie = ''
+        }
       },
     }
     const app = Vue.createApp(obj)
