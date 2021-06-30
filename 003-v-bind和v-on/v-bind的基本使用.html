@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <template id="chen">
+    <img v-bind:src="imgUrl" alt="">
+    <a v-bind:href="link">item</a>
+    <a :href="link">item</a>
+  </template>
+
+  <script>
+    const obj = {
+      template: '#chen',
+      data() {
+        return {
+          imgUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.ixinwei.com%2Fiww201810%2F154047.jpg&refer=http%3A%2F%2Fimg2.ixinwei.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1627625979&t=b1bfeb4c287a3e0b369574a4bef98852',
+          link: 'https://www.baidu.com'
+        }
+      },
+      // 定义方法
+      methods: {
+      },
+    }
+    const app = Vue.createApp(obj)
+    app.mount('#app')
+
+  </script>
+</body>
+</html>

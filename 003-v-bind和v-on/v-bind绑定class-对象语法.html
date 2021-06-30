@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <template id="chen">
+    <div>
+      <!-- 动静结合 -->
+      <div class="asd ddd" v-bind:class="{'active': flag, 'title': true}" @click="changeColor">hahah</div>
+      <!-- 放到属性中 -->
+      <div class="asd ddd" v-bind:class="theClass" @click="changeColor">hahah</div>
+      <!-- 将返回的对象放到methods中 -->
+      <div class="asd ddd" v-bind:class="getTheClass()" @click="changeColor">hahah</div>
+    </div>
+  </template>
+
+  <script>
+    const obj = {
+      template: '#chen',
+      data() {
+        return {
+          message: 'hello world',
+          flag: false,
+          theClass: {active: true, title: true}
+        }
+      },
+      // 定义方法
+      methods: {
+        changeColor() {
+          this.flag = !this.flag
+        },
+        getTheClass() {
+          return {
+            active: true, title: true
+          }
+        }
+      },
+    }
+    const app = Vue.createApp(obj)
+    app.mount('#app')
+
+  </script>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</body>
+</html>
