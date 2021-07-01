@@ -9,11 +9,28 @@
 <body>
   <!-- 对象的引用赋值 -->
   <script>
-    // 对象是引用（指针）类型
-    const info = {name: 'chen', age: 33}
+    // 对象的引用（指针）类型
+    // const info = {name: 'chen', age: 33}
+    // const obj = info
+    // info.name = 'kobe'
+    // console.log(obj.name)
   </script>
-  <script></script>
-  <script></script>
+  <script>
+    // 对象的浅拷贝
+    // const info = {name: 'chen', age: 33, friend: {name: '11'}}
+    // const obj = Object.assign({}, info)
+    // info.name = 'cobe'
+    // info.friend.name = '11老师'
+    // console.log(obj.name)
+    // console.log(obj.friend.name)
+  </script>
+  <script>
+    // 对象的深拷贝
+    const info = {name: 'chen', age: 33, friend: {name: '11'}}
+    const obj = JSON.parse(JSON.stringify(info)) 
+    info.friend.name = 'james'
+    console.log(obj.friend.name)
+  </script>
   
 </body>
 </html>
