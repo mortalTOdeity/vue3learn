@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <template id="chen">
+    <div>
+      <button @click="changeFullName">修改fullName</button>
+      <h2>{{zenName}}</h2>
+    </div>
+  </template>
+
+  <script>
+    const obj = {
+      template: '#chen',
+      data() {
+        return {
+          firstName: 'chen',
+          lastName: 'yiran',
+        }
+      },
+      methods: {
+        changeFullName() {
+          this.zenName = 'wei yi'
+        }
+      },
+      // 定义计算属性
+      computed: {
+        // fullname() {
+        //   return this.firstName + ' ' + this.lastName
+        // },
+        // 完整写法
+        zenName: {
+          get: function() {
+            return this.firstName + ' ' + this.lastName
+          },
+          set: function(newValue) {
+            console.log(newValue)
+            const names = newValue.split(' ')
+            this.firstName = names[0],
+            this.lastName = names[1]
+          }
+        }
+      }
+      
+    }
+    const app = Vue.createApp(obj)
+    app.mount('#app')
+
+  </script>
+</body>
+</html>

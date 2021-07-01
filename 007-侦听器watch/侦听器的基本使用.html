@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <template id="chen">
+    您的问题：<input type="text" v-model="question">
+  </template>
+
+  <script>
+    const obj = {
+      template: '#chen',
+      data() {
+        return {
+          question: 'hello world',
+          answer: ''
+        }
+      },
+      watch: {
+        // question 为 data 中需要侦听的属性的名称
+        // newValue 变化后的新值 oldValue 变化前的旧值
+        question(newValue, oldValue) {
+          console.log('新值--', newValue)
+          console.log('旧值--', oldValue)
+          this.queryAnswer()
+        }
+      },
+      // 定义方法
+      methods: {
+        queryAnswer() {
+          console.log(`你的问题 ${this.question} 的答案是哈哈哈`)
+          this.answer = ''
+        }
+      },
+    }
+    const app = Vue.createApp(obj)
+    app.mount('#app')
+
+  </script>
+</body>
+</html>
