@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <template id="chen">
+    <div>
+      <h2>{{message}}</h2>
+      <h2>{{fullname}}</h2>
+      <h2>{{result}}</h2>
+      <h2>{{reverse}}</h2>
+    </div>
+  </template>
+
+  <script>
+    const obj = {
+      template: '#chen',
+      data() {
+        return {
+          message: 'hello world',
+          firstName: 'chen',
+          lastName: 'yiran',
+          score: 80
+        }
+      },
+      // 定义计算属性
+      computed: {
+        // 定义了一个计算属性叫做fullname
+        fullname() {
+          return this.firstName + ' ' + this.lastName
+        },
+        result() {
+          return this.score >= 60 ? '及格' : '不及格'
+        },
+        reverse() {
+          return this.message.split(' ').reverse().join(' ')
+        }
+      }
+      
+    }
+    const app = Vue.createApp(obj)
+    app.mount('#app')
+
+  </script>
+</body>
+</html>
