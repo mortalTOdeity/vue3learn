@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="../js/vue.global.js"></script>
+  <template id="chen">
+    <h2>我是标题</h2>
+    <p>我是内容</p>
+    <com1></com1>
+    <com1></com1>
+    <com1></com1>
+    <com1></com1>
+  </template>
+
+  <template id="com1">
+    <h2>啊实打实的</h2>
+    <h2>{{title}}</h2>
+  </template>
+
+  <script>
+    const obj = {
+      template: '#chen',
+      data() {
+        return {
+          message: 'hello world',
+        }
+      },
+      // 定义方法
+      methods: {
+      },
+    }
+    const app = Vue.createApp(obj)
+    
+    // 使用app 注册一个全局组件
+    app.component('com1', {
+      template: '#com1',
+      data() {
+        return {
+          title: '我是火车网'
+        }
+      },
+    })
+    app.mount('#app')
+
+  </script>
+</body>
+</html>

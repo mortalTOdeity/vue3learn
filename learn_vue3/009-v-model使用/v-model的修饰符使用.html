@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="../js/vue.global.js"></script>
+  <template id="chen">
+    <!-- lazy 修饰符 -->
+    <!-- <input type="text" v-model.lazy="message"> -->
+
+    <!-- npmber 修饰符 -->
+    <!-- <input type="text" v-model.number="message">
+    <h2>{{message}}</h2>
+    <button @click="showType">查看类型</button>
+  </template> -->
+
+  <!-- trim 修饰符 -->
+    <input type="text" v-model.trim="message">
+    <button @click="showResult">查看结果</button>
+    <h2>{{message}}</h2>
+  </template>
+
+  <script>
+    const obj = {
+      template: '#chen',
+      data() {
+        return {
+          message: 1090,
+        }
+      },
+      // 定义方法
+      methods: {
+        showType() {
+          console.log(this.message, typeof this.message)
+        },
+        showResult() {
+          console.log(this.message)
+        }
+      },
+    }
+    const app = Vue.createApp(obj)
+    app.mount('#app')
+
+  </script>
+</body>
+</html>
