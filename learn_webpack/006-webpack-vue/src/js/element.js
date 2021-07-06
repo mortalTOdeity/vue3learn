@@ -22,5 +22,3 @@ document.body.appendChild(imgEl)
 const iEl = document.createElement('i')
 iEl.className = 'iconfont icon-ashbin'
 document.body.appendChild(iEl)
-
-console.log(item.asdg())

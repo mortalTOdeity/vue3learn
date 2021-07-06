@@ -53,27 +53,6 @@ module.exports = {
           },
         ]
       },
-      // {
-      //   test: /\.(jpg|png|gif|svg|jpeg)$/,
-      //   use: {
-      //     loader: 'file-loader',
-      //     options: {
-      //       // outputPath: "img",
-      //       name: 'img/[name]_[hash:6].[ext]'
-      //     }
-      //   }
-      // },
-      // {
-      //   test: /\.(jpg|png|gif|svg|jpeg)$/,
-      //   use: {
-      //     loader: 'url-loader',
-      //     options: {
-      //       // outputPath: "img",
-      //       name: 'img/[name]_[hash:6].[ext]',
-      //       limit: 100 * 1024
-      //     }
-      //   }
-      // }
       {
         test: /\.(jpg|png|gif|svg|jpeg)$/,
         type: 'asset',
@@ -86,22 +65,20 @@ module.exports = {
           }
         }
       },
-      // {
-      //   test: /\.(eot|ttf|woff2?)$/,
-      //   use: {
-      //     loader: 'file-loader',
-      //     options: {
-      //       outputPath: 'font',
-      //       name: '[name]_[hash:6][ext]'
-      //     }
-      //   }
-      // }
       {
         test: /\.(eot|ttf|woff2?)$/,
         type: 'asset/resource',
         generator: {
           filename: 'font/[name]_[hash:6][ext]'
         }
+      },
+      {
+        test: /\.js$/,
+        loader: "babel-loader"
+      },
+      {
+        test: /\.vue$/,
+        loader: "vue-loader"
       }
     ]
   },
