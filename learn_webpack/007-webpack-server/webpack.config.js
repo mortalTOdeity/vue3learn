@@ -17,7 +17,11 @@ module.exports = {
   },
   devServer: {
     contentBase: "./public",
-    hot: true
+    hot: true,
+    // host: '0.0.0.0',
+    port: 8000,
+    open: true,
+    compress: true
   },
   module: {
     rules: [
