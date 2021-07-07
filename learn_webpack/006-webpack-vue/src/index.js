@@ -1,5 +1,5 @@
 import { sum } from './js/math.js'
-import { createApp } from 'vue/dist/vue.esm-bundler' 
+import { createApp } from 'vue' 
 const { priceFromat } = require('./js/format.js')
 import './js/element'
 import App from './vue/App.vue'
@@ -17,5 +17,5 @@ import App from './vue/App.vue'
   //   }
   // },
 // })
-const app = createApp({App})
+const app = createApp(App)
 app.mount('#app')

@@ -13,8 +13,8 @@ export default {
   },
   data() {
     return {
-      title: 'hello world!',
-      message: 'hahah'
+      title: 'h啊实打实的d!',
+      message: '的撒按时大苏打'
     }
   },
   methods: {

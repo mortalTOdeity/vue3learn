@@ -6,12 +6,18 @@ const { VueLoaderPlugin } = require('vue-loader/dist/index')
 const path = require('path')
 
 module.exports = {
+  target: "web",
   mode: 'development',
   devtool: "source-map",
+  // watch: true,
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'js/main.js',
+  },
+  devServer: {
+    contentBase: "./public",
+    hot: true
   },
   module: {
     rules: [
@@ -94,19 +100,19 @@ module.exports = {
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: "public",
-          to: "./",
-          globOptions: {
-            ignore: [
-              '**/index.html'
-            ]
-          }
-        }
-      ]
-    }),
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: "public",
+    //       to: "./",
+    //       globOptions: {
+    //         ignore: [
+    //           '**/index.html'
+    //         ]
+    //       }
+    //     }
+    //   ]
+    // }),
     new VueLoaderPlugin()
   ]
 }
