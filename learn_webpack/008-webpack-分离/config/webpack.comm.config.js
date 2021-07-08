@@ -1,44 +1,21 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader/dist/index')
 const path = require('path')
 
-
 module.exports = {
   target: "web",
-  mode: 'development',
-  devtool: "source-map",
   // watch: true,
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: 'js/main.js',
-  },
-  devServer: {
-    contentBase: "./public",
-    hot: true,
-    // host: '0.0.0.0',
-    port: 8000,
-    open: true,
-    compress: true,
-    proxy: {
-      "/api": {
-        target: "http://localhost:8888",
-        pathRewrite: {
-          "^api": ""
-        },
-        secure: false,
-        changeOrigin: true
-      }
-    }
   },
   resolve: {
     extensions: [".js", ".json", ".mjs", ".vue", ".ts", ".jsx", ".tsx"],
     alias: {
-      "js": path.resolve(__dirname, "./src/js"),
-      "@": path.resolve(__dirname, "./src")
+      "js": path.resolve(__dirname, "../src/js"),
+      "@": path.resolve(__dirname, "../src")
     }
   },
   module: {
@@ -112,7 +89,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       title: '呵呵'
@@ -122,19 +98,6 @@ module.exports = {
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: "public",
-    //       to: "./",
-    //       globOptions: {
-    //         ignore: [
-    //           '**/index.html'
-    //         ]
-    //       }
-    //     }
-    //   ]
-    // }),
     new VueLoaderPlugin()
   ]
 }
