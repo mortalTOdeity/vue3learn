@@ -1,9 +1,10 @@
-import _ from '../node_modules/lodash-es/lodash.default'
+import _ from 'lodash-es'
+import { createApp } from 'vue'
 import "./css/style.css"
 import "./css/title.less"
 import { sum } from './js/math'
 import mul from './ts/mul'
-
+import App from './vue/App.vue'
 
 
 console.log('hello world!')
@@ -15,3 +16,6 @@ const titleEl = document.createElement('div')
 titleEl.className = "title"
 titleEl.innerHTML = 'hello vite'
 document.body.appendChild(titleEl)
+
+// vue
+createApp(App).mount("#app")
