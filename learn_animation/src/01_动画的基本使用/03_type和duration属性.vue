@@ -3,16 +3,14 @@
     <div>
       <button @click="toggle">切换</button>
     </div>
-    <transition name="chen" mode="out-in" appear>
-      <component :is="isShow ? 'home' : 'about'"></component>
+    <transition name="chen" type="animation" :duration="500">
+      <h2 v-if="isShow" class="title">Hello World</h2>
     </transition>
     
   </div>
 </template>
 
 <script>
-  import Home from './pages/Home.vue'
-  import About from './pages/About.vue'
   export default {
     data() {
       return {
@@ -23,10 +21,6 @@
       toggle() {
         this.isShow = !this.isShow
       }
-    },
-    components: {
-      Home,
-      About
     }
   }
 </script>
@@ -40,11 +34,11 @@
     display: inline-block;
   }
   .chen-enter-active {
-    animation: bounce 1s ease;
+    animation: bounce 2s ease;
     transition: opacity 1 s ease;
   }
   .chen-leave-active {
-    animation: bounce 1s ease reverse;
+    animation: bounce 2s ease reverse;
     transition: opacity 1s ease
   }
   @keyframes bounce {

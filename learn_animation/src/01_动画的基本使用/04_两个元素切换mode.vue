@@ -3,16 +3,15 @@
     <div>
       <button @click="toggle">切换</button>
     </div>
-    <transition name="chen" mode="out-in" appear>
-      <component :is="isShow ? 'home' : 'about'"></component>
+    <transition name="chen" mode="out-in">
+      <h2 v-if="isShow" class="title">Hello World</h2>
+      <h2 v-else class="title">Hello Worldddd</h2>
     </transition>
     
   </div>
 </template>
 
 <script>
-  import Home from './pages/Home.vue'
-  import About from './pages/About.vue'
   export default {
     data() {
       return {
@@ -23,10 +22,6 @@
       toggle() {
         this.isShow = !this.isShow
       }
-    },
-    components: {
-      Home,
-      About
     }
   }
 </script>
