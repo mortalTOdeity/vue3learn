@@ -6,10 +6,10 @@
 </template>
 
 <script>
-  import { ref } from 'vue'
+  import debounceRef from './hook/useDebounceRef'
   export default {
     setup(props) {
-      const message = ref('item')
+      const message = debounceRef('item')
       return {
         message
       }
