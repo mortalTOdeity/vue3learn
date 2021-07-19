@@ -1,19 +1,22 @@
 <template>
   <div>
-    <h2 ref="title">hhhhh</h2>
+    <h2>hhhhh</h2>
+    <button @click="changeData">修改</button>
   </div>
 </template>
 
 <script>
-  import { ref, watchEffect } from 'vue'
+  import { reactive, watch } from 'vue'
   export default {
     setup() {
-      const title = ref(null)
-      watchEffect(() => {
-        console.log(title.value)
+      const info = reactive({name: 'chen', age: '29'})
+      watch(info, (newValue, oldValue) => {
+        console.log("newValue:", newValue, "oldValue:", oldValue);
       })
+      const changeData = () => {
+        info.name = 'chen2'
+      }
       return {
-        title
       }
     }
   }
