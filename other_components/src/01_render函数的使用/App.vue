@@ -1,26 +1,12 @@
 <script>
   import { h, ref } from 'vue'
+  import HelloWorld from './HelloWorld.vue'
   export default {
-    setup(props) {
-      const counter = ref(0)
-      return {
-        counter
-      }
-    },
-    data() {
-      return {
-        counter: 0
-      }
-    },
     render() {
-      return h('h2', {class: 'app'}, [
-        h('h2', null, `当前计数：${this.counter}`), h('button', {
-          onClick: () => this.counter ++
-          }, '+1'),h('button', {
-          onClick: () => this.counter --
-          }, '-1')
-      ])
-    }
+      return h(HelloWorld, null, {
+        default: props => h('span', null, `app传入到HelloWorld中的内容: ${props.name}`)
+      })
+    },
   }
 </script>
 
