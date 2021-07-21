@@ -20,7 +20,10 @@
     
     // 3.创建新的vnode
     setTimeout(() => {
-      const vnode1 = h('div', { class: 'chen22', id: 'aaa' }, '啊这')
+      const vnode1 = h('div', { class: 'chen22', id: 'aaa' }, [
+      h('h2', null, 'asd'),
+      h('button', {onClick: function() {}}, '-1')
+    ])
       patch(vnode, vnode1)
     }, 2000)
     
