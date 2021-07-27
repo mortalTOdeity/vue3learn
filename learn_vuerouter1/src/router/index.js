@@ -7,10 +7,11 @@ const routes = [
     path: '/',
     redirect: '/home'
   },
+  // 魔法注释
   {
     path: '/home',
     component: () => {
-      return import('../views/Home.vue')
+      return import(/* webpackChunkName: "home-chunk" */'../views/Home.vue')
     }
   },
   {
