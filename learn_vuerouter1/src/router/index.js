@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
+// import Home from '../views/Home.vue'
+// import About from '../views/About.vue'
 
 const routes = [
   {
@@ -9,11 +9,13 @@ const routes = [
   },
   {
     path: '/home',
-    component: Home
+    component: () => {
+      return import('../views/Home.vue')
+    }
   },
   {
     path: '/about',
-    component: About
+    component: () => import('../views/About.vue')
   },
 ]
 // 创建一个路由对象
