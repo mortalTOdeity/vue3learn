@@ -1,19 +1,13 @@
 <template>
   <div>
-    <h2>Home: {{$store.state.counter}}</h2>
-    <h2>{{age}}</h2>
-    <h2>{{name}}</h2>
+    <h2>当前计数:{{$store.state.counter}}</h2>
   </div>
 </template>
 
 <script>
-  import { useState } from '../hooks/useState'
   export default {
-    setup() {
-      const storeState = useState(['name', 'age'])
-      return {
-        ...storeState
-      }
+    computed: {
+
     }
   }
 </script>
