@@ -1,6 +1,6 @@
 <template>
   <div>
-    about
+    <h2>商品组件！</h2>
   </div>
 </template>
 

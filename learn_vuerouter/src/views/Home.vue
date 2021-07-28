@@ -1,18 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h2>Home</h2>
+    <div>aaaa我是home</div>
   </div>
+  <router-link to="/home/message">
+    <button>消息</button>
+  </router-link>
+  <router-link to="/home/shops">商品</router-link>
+  <router-link to="/home/moment">动态</router-link>
+  <router-view></router-view>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+  import { useRouter, useRoute } from 'vue-router'
+  export default {
+    setup() {
+      // const router = useRouter()
+      const route = useRoute()
+      console.log(route);
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+      const item = route.query.name
+      console.log(item)
+    }
   }
-}
 </script>
+
+<style scoped>
+
+</style>

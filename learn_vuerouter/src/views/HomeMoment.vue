@@ -1,6 +1,6 @@
 <template>
   <div>
-    about
+    <h2>homemoment</h2>
   </div>
 </template>
 

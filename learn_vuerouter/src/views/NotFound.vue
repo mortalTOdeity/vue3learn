@@ -1,6 +1,6 @@
 <template>
   <div>
-    about
+    <h2>notFound</h2>
   </div>
 </template>
 

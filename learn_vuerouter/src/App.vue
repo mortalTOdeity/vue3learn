@@ -1,30 +1,62 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <button @click="jumptoHome">首页</button>
+    <!-- <router-link to="/home" replace active-class="made">首页</router-link> -->
+    <router-link to="/about" v-slot="props">
+      <button>{{props.href}}</button>
+      <p>{{props.route}}</p>
+    </router-link>
+    <router-link to="/user/chen">用户</router-link>
+    <router-view v-slot="props">
+      <keep-alive>
+        <component :is="props.Component"></component>
+      </keep-alive>
+    </router-view>
   </div>
-  <router-view/>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  import { useRouter } from 'vue-router'
+  export default {
+    // methods: {
+    //   jumptoHome() {
+    //     this.$router.push({
+    //       path: '/home'
+    //     })
+    //   }
+    // },
+    setup() {
+      const router = useRouter()
+      const jumptoHome = () => {
+        
+        router.push({
+          path: '/home',
+          query: {
+            name: 'az'
+          }
+        })
+      }
+      return {
+        jumptoHome
+      }
+    }
+  }
+</script>
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style scoped>
+  .made {
+    color: blue;
+  }
+  .chen-enter-from {
+    opacity: 0;
+  }
+  .chen-leave-to {
+    opacity: 0;
+  }
+  .chen-enter-active {
+    transition: opacity 1s ease;;
+  }
+  .chen-leave-active {
+    transition: opacity 1s ease;;
+  }
 </style>

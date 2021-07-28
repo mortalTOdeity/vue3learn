@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>user</h2>
+    <h2>消息组件！</h2>
   </div>
 </template>
 

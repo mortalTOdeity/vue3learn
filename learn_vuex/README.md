@@ -1,4 +1,4 @@
-# learn_vuerouter1
+# learn_vuex
 
 ## Project setup
 ```
