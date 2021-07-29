@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './04_teleport内置组件/App.vue'
+import App from './03_自定义指令/App.vue'
 import registerDirectives from './directives/index'
 import pluginObject from './plugins/plugins_object'
 import pluginFunction from './plugins/plugins_function'

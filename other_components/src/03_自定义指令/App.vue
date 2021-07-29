@@ -1,5 +1,6 @@
 <template>
-  <h2 v-ftime="'asads'">{{timestamp}}</h2>
+  <h2 v-ftime="'YYYY/MM/DD'">{{timestamp}}</h2>
+  <h2 v-ftime>{{timestamp}}</h2>
   <h2>as</h2>
 </template>
 
